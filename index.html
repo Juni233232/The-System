@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://www.youtube.com/iframe_api"></script>
   <title>THE SYSTEM</title>
+  <link rel="manifest" href="data:application/manifest+json,{\"name\":\"THE SYSTEM\",\"short_name\":\"SYSTEM\",\"start_url\":\"/\",\"display\":\"standalone\",\"background_color\":\"#000000\",\"theme_color\":\"#00BFFF\",\"icons\":[{\"src\":\"data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect fill='%2300BFFF' width='192' height='192'/><text x='50%' y='50%' font-size='100' fill='%23000' text-anchor='middle' dominant-baseline='middle' font-weight='bold' font-family='Arial'>⚔</text></svg>\",\"sizes\":\"192x192\",\"type\":\"image/svg+xml\",\"purpose\":\"any\"}]}">
+  <meta name="theme-color" content="#00BFFF">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 
   <style>
@@ -4574,6 +4576,11 @@ function updateMusicUI() {
    BOOT
 ════════════════════════════════════════════════════════ */
 window.addEventListener('DOMContentLoaded', initApp);
+</script>
+  <script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('data:application/javascript,const CACHE_NAME="system-v1";self.addEventListener("install",e=>self.skipWaiting());self.addEventListener("activate",e=>self.clients.matchAll().then(c=>c.forEach(a=>a.navigate(a.url))));self.addEventListener("fetch",e=>{if(e.request.method==="GET"){e.respondWith(caches.open(CACHE_NAME).then(c=>c.match(e.request).catch(()=>fetch(e.request).then(r=>{c.put(e.request,r.clone());return r}))).catch(()=>fetch(e.request)))}});').catch(()=>{});
+}
 </script>
 </body>
 </html>
